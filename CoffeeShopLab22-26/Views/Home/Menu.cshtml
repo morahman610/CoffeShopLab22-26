@@ -1,0 +1,41 @@
+﻿@using CoffeeShopLab22_26.Models;
+@{
+    ViewBag.Title = "Menu";
+}
+
+<h2>Menu</h2>
+
+<form action="~/Home/ItemListByQuantity" method="get">
+    <label>
+        Search by Quantity:
+        <input type="text" name="Quantity" class="form-control" />
+    </label>
+    <input type="submit" value="Search by Quantity" class="btn btn-primary" />
+</form>
+<br />
+
+
+
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>price</th>
+    </tr>
+
+    @foreach (Items i in ViewBag.Items)
+    {
+        <tr>
+            <td>@i.Name</td>
+            <td>@i.Description</td>
+            <td>@i.Quantity</td>
+            <td>@i.Price</td>
+            <td>
+                <a href="~/Home/Add?id=@i.ProductID"
+                   class="btn btn-primary">Add to Bag</a>
+            </td>
+        </tr>
+    }
+</table>

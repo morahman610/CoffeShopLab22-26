@@ -1,0 +1,26 @@
+﻿@using CoffeeShopLab22_26.Models;
+
+@{
+
+    ViewBag.Title = "Add";
+
+}
+
+
+
+<h2>Shopping Cart</h2>
+
+<ul>
+
+
+    @foreach (Items i in (List<Items>)(Session["Cart"]))
+
+    {
+
+        <li>@i.Name Added $@i.Price</li>
+
+    }
+
+</ul>
+
+@Html.ActionLink("Back to Menu", "Menu", "Home")
